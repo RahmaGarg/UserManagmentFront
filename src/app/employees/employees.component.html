@@ -1,57 +1,64 @@
 <div>
     <h2>Liste des utilisateurs</h2>
+    <button (click)="openUserModal()">Ajouter un utilisateur</button>
     <table>
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>Nom d'utilisateur</th>
-                <th>Rôle</th>
-                <th>Manager ID</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.role }}</td>
-                <td>{{ user.managerId ? user.managerId : 'Aucun' }}</td>
-                <td>
-                    <button (click)="deleteUser(user.id)">Supprimer</button>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Nom d'utilisateur</th>
+          <th>Rôle</th>
+          <th>Manager ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.managerId ? user.managerId : 'Aucun' }}</td>
+          <td>
+            <button (click)="deleteUser(user.id)">Supprimer</button>
+            <button (click)="openManagerModal(user)">Affecter Manager</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-</div>
-  <div>
-    <h3>Créer un nouvel utilisateur</h3>
-    <form (submit)="createUser()">
-      <label for="username">Nom d'utilisateur:</label>
-      <input [(ngModel)]="newUser.username" name="username" id="username" required />
-      <br />
-      <label for="password">Mot de passe:</label>
-      <input [(ngModel)]="newUser.password" name="password" id="password" required type="password"/>
-      <br />
-      <label for="role">Rôle:</label>
-      <select [(ngModel)]="newUser.role" name="role" id="role" required>
-        <option value="RH">RH</option>
-        <option value="EMPLOYE">Employé</option>
-        <option value="MANAGER">Manager</option>
-
-      </select>
-      <br />
-      <button type="submit">Créer utilisateur</button>
-    </form>
   </div>
   
-  <div>
-    <h3>Affecter un manager à un employé</h3>
-    <label for="employeeId">ID de l'employé:</label>
-    <input type="number" [(ngModel)]="employeeId" name="employeeId" required />
-    <br />
-    <label for="managerId">ID du manager:</label>
-    <input type="number" [(ngModel)]="managerId" name="managerId" required />
-    <br />
-    <button (click)="setManager()">Affecter</button>
+  <!-- Modal pour créer un nouvel utilisateur -->
+  <div *ngIf="isUserModalOpen" class="modal">
+    <div class="modal-content">
+      <h3>Créer un nouvel utilisateur</h3>
+      <form (submit)="createUser()">
+        <label for="username">Nom d'utilisateur:</label>
+        <input [(ngModel)]="newUser.username" name="username" id="username" required />
+        <br />
+        <label for="password">Mot de passe:</label>
+        <input [(ngModel)]="newUser.password" name="password" id="password" required type="password" />
+        <br />
+        <label for="role">Rôle:</label>
+        <select [(ngModel)]="newUser.role" name="role" id="role" required>
+          <option value="RH">RH</option>
+          <option value="EMPLOYE">Employé</option>
+          <option value="MANAGER">Manager</option>
+        </select>
+        <br />
+        <button type="submit">Créer utilisateur</button>
+        <button type="button" (click)="closeUserModal()">Fermer</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal pour affecter un manager -->
+  <div *ngIf="isManagerModalOpen" class="modal">
+    <div class="modal-content">
+      <h3>Affecter un manager à {{ selectedUser?.username }}</h3>
+      <label for="managerId">ID du manager:</label>
+      <input type="number" [(ngModel)]="managerId" name="managerId" required />
+      <br />
+      <button (click)="assignManager()">Affecter</button>
+      <button (click)="closeManagerModal()">Fermer</button>
+    </div>
   </div>
   

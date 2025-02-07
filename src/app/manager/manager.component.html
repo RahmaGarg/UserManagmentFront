@@ -1,1 +1,27 @@
-<p>manager works!</p>
+<div class="manager-dashboard">
+    <h2>Mes employés</h2>
+
+    <div *ngIf="employees.length > 0; else noEmployees">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom d'utilisateur</th>
+                    <th>Rôle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.username }}</td>
+                    <td>{{ employee.role }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noEmployees>
+        <p>Aucun employé à afficher.</p>
+    </ng-template>
+</div>
+
