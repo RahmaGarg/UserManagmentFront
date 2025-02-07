@@ -1,0 +1,169 @@
+// Importation de la police et des icônes
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+// Variables de couleurs
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$bg-color: #f4f6f9;
+$button-hover-color: #2980b9;
+$danger-color: #e74c3c;
+$card-bg-color: #ffffff;
+$input-bg-color: #f7f7f7;
+$text-color: #333;
+$border-color: #ddd;
+
+// Police par défaut
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3 {
+  color: $primary-color;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+// Styles pour le conteneur principal
+div {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $card-bg-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Liste des utilisateurs
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: $input-bg-color;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: $danger-color;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($danger-color, 10%);
+  }
+}
+
+// Formulaire
+form {
+  display: grid;
+  gap: 15px;
+}
+
+label {
+  font-weight: 600;
+  color: $text-color;
+}
+
+input, select {
+  padding: 10px;
+  background-color: $input-bg-color;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
+
+button[type="submit"] {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+// Input de type number
+input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+// Style des icônes
+i {
+  margin-right: 8px;
+}
+
+// Boutons de l'affectation
+button.set-manager-btn {
+  background-color: $secondary-color;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// Effet de survol sur la liste d'utilisateurs
+li:hover {
+  background-color: #ecf0f1;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}

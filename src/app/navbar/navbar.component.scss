@@ -1,0 +1,81 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$hover-color: #2980b9;
+$button-bg-color: #e74c3c;
+$button-hover-color: #c0392b;
+$font-family: 'Arial', sans-serif;
+
+// Navbar container
+nav {
+  background-color: $secondary-color;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // Style des éléments de la liste
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    
+    li {
+      margin: 0 15px;
+      font-size: 18px;
+      color: white;
+      font-family: $font-family;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      // Style du bouton
+      button {
+        background-color: $button-bg-color;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $button-hover-color;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  // Style pour la bienvenue
+  li:first-child {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    ul {
+      width: 100%;
+      padding-left: 0;
+
+      li {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
