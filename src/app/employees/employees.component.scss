@@ -1,189 +1,160 @@
-// Importation de la police et des icônes
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
-// Variables de couleurs
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$bg-color: #f4f6f9;
-$button-hover-color: #2980b9;
-$danger-color: #e74c3c;
-$card-bg-color: #ffffff;
-$input-bg-color: #f7f7f7;
-$text-color: #333;
-$border-color: #ddd;
-
-// Police par défaut
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: $bg-color;
-  color: $text-color;
-  margin: 0;
-  padding: 0;
-}
-
-h2, h3 {
-  color: $primary-color;
-  font-weight: 600;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-h3 {
-  margin-bottom: 15px;
-}
-
-// Styles pour le conteneur principal
-div {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: $card-bg-color;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-// Liste des utilisateurs
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  background-color: $input-bg-color;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-button {
-  background-color: $danger-color;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($danger-color, 10%);
-  }
-}
-
-// Formulaire
-form {
-  display: grid;
-  gap: 15px;
-}
-
-label {
-  font-weight: 600;
-  color: $text-color;
-}
-
-input, select {
-  padding: 10px;
-  background-color: $input-bg-color;
-  border: 1px solid $border-color;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-
-  &:focus {
-    border-color: $primary-color;
-    outline: none;
-  }
-}
-
-button[type="submit"] {
-  background-color: $primary-color;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: $button-hover-color;
-  }
-}
-
-// Input de type number
-input[type="number"] {
-  -moz-appearance: textfield;
-  -webkit-appearance: none;
-
-  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}
-
-// Style des icônes
-i {
-  margin-right: 8px;
-}
-
-// Boutons de l'affectation
-button.set-manager-btn {
-  background-color: $secondary-color;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($secondary-color, 10%);
-  }
-}
-
-// Effet de survol sur la liste d'utilisateurs
-li:hover {
-  background-color: #ecf0f1;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-th {
-    background-color: #f4f4f4;
-}
-tr:hover {
-    background-color: #f1f1f1;
-}
-/* Style du modal */
+/* Style pour les modales */
+/* Style pour les modales */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0; /* Positionner en haut de l'écran */
+  left: 0;
+  width: 100%;
+  height: 100%; /* Couvrir toute la hauteur de l'écran */
+  background: rgba(0, 0, 0, 0.6); /* Arrière-plan sombre avec opacité */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrer la modal verticalement et horizontalement */
+  padding: 0; /* Supprimer le padding, car aligné par flexbox */
+  z-index: 9999; /* S'assurer que la modal se superpose aux autres éléments */
 }
 
 .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    text-align: center;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%; /* Pour ne pas dépasser de l'écran sur des écrans plus petits */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Styles pour le reste du contenu restent inchangés */
+
+
+.modal-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Style pour les boutons dans la modal */
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; /* Ajouter de l'espace entre les boutons */
+  margin-bottom: 10px; /* Ajouter de l'espace en bas si nécessaire */
+}
+
+.modal-content button:last-child {
+  margin-right: 0; /* Enlever la marge à droite du dernier bouton */
+}
+
+
+.modal-content button:hover {
+  background-color: #2980b9;
+}
+
+button.close {
+  background-color: #e74c3c;
+}
+
+button.close:hover {
+  background-color: #c0392b;
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #3498db;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+.table .delete,
+.table .edit {
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.table .edit {
+  color: #3498db;
+}
+
+.table .delete:hover,
+.table .edit:hover {
+  opacity: 0.7;
+}
+
+/* Button Add New */
+.add-new {
+  background-color: #27ae60;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin:50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-new:hover {
+  background-color: #2ecc71;
+}
+h2{
+  margin:50px;
+
+}
+
+/* Tooltip */
+[data-toggle="tooltip"] {
+  cursor: pointer;
 }

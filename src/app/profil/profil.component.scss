@@ -1,0 +1,94 @@
+.profile-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #1698cd;
+  text-align: center; // Centrer le contenu pour un meilleur rendu
+
+  h2 {
+      color: #1698cd;
+      font-size: 22px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-weight: bold;
+  }
+
+  .profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+
+    img {
+        width: 90px;  
+        height: 90px;
+        border-radius: 50%;  
+        border: 3px solid #1698cd;  
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        object-fit: cover;  
+    }
+  }
+
+  p {
+      font-size: 16px;
+      color: #333;
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      transition: transform 0.2s ease-in-out;
+
+      &:hover {
+          transform: scale(1.02);
+          background: #f1f1f1;
+      }
+  }
+
+  strong {
+      color: #1698cd;
+  }
+}
+
+/* Section Manager */
+.manager-details {
+  max-width: 550px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #ecf0f3;  // Bleu très clair pour un effet élégant
+  border-left: 5px solid #2C3E50;  // Bleu foncé et sobre
+  box-shadow: 0 4px 10px rgba(44, 62, 80, 0.15); 
+
+  text-align: center;
+
+  h3 {
+      color: #2C3E50;
+      font-size: 21px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 15px;
+  }
+
+  p {
+      font-size: 16px;
+      color: #444;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 5px;
+      margin: 8px 0;
+      border: 1px solid rgba(44, 62, 80, 0.2);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+          transform: scale(1.03);
+          background: #d9e2ec;
+      }
+  }
+
+  strong {
+      color: #2C3E50;
+  }
+}

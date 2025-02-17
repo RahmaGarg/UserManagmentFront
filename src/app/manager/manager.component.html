@@ -1,27 +1,57 @@
-<div class="manager-dashboard">
-    <h2>Mes employés</h2>
 
-    <div *ngIf="employees.length > 0; else noEmployees">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom d'utilisateur</th>
-                    <th>Rôle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let employee of employees">
-                    <td>{{ employee.id }}</td>
-                    <td>{{ employee.username }}</td>
-                    <td>{{ employee.role }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Simple Data Table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Mes <b>Employés</b></h2></div>
+                    <div class="col-sm-4">
+                        <div class="search-box">
+                            <i class="material-icons">&#xE8B6;</i>
+                            <input type="text" class="form-control" placeholder="Search&hellip;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="employees.length > 0; else noEmployees">
 
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <td>{{ employee.id }}</td>
+                        <td>{{ employee.username }}</td>
+                        <td>{{ employee.role }}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            
     <ng-template #noEmployees>
         <p>Aucun employé à afficher.</p>
     </ng-template>
-</div>
 
+          
+    </div>  
+</div>   

@@ -15,18 +15,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.authService.currentUser.subscribe(user => {
       this.currentUser = user;
-      console.log('vous etets',this.currentUser)
+      console.log('vous êtes connecté en tant que', this.currentUser);
     });
   }
 
   logout() {
     this.authService.logout().subscribe(
       response => {
-        console.log('Logout successful');
-        this.router.navigate(['/']); // Redirect to login page
+        console.log('Déconnexion réussie');
+        this.router.navigate(['/']); // Rediriger vers la page de login
       },
       error => {
-        console.error('Logout failed', error);
+        console.error('Échec de la déconnexion', error);
       }
     );
   }

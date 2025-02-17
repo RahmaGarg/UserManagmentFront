@@ -39,4 +39,9 @@ export class AuthService {
   getCurrentUser(): any {
     return this.currentUserSubject.value; // Récupérer l'utilisateur actuellement connecté
   }
+  getUserById(userId: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/users/${userId}`);
+  }
+  
+  
 }

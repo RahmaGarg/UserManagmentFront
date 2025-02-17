@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8080/users';  // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8080/users';  
 
   constructor(private http: HttpClient) { }
 
@@ -22,13 +22,14 @@ export class UserService {
   }
 
   // Supprimer un utilisateur par ID
-  deleteUser(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  deleteUser(id: number): Observable<void> {  
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);  
+  }  
+  
+  setManagerToEmployee(employeeId: number, managerId: number): Observable<any> {  
+    return this.http.post<any>(`${this.apiUrl}/${employeeId}/setManager/${managerId}`, {});  
   }
-
-  setManagerToEmployee(employeeId: number, managerId: number): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${employeeId}/setManager/${managerId}`, {});
-  }
+  
   
   
 }

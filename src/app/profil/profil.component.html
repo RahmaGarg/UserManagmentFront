@@ -1,1 +1,22 @@
-<p>profil works!</p>
+
+<div class="profile-container">
+  <div class="profile-image">
+      <img src="../../assets/profil.png" alt="Photo de profil">
+  </div>
+  
+  <h2>Profil de l'employé</h2>
+
+  <div *ngIf="user">
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Nom d'utilisateur:</strong> {{ user.username }}</p>
+    <p><strong>Rôle:</strong> {{ user.role }}</p>
+  </div>
+</div>
+
+<!-- Section Manager -->
+<div *ngIf="manager" class="manager-details">
+    <h3>Détails du Manager</h3>
+    <p><strong>ID:</strong> {{ manager.id }}</p>
+    <p><strong>Nom :</strong> {{ manager.username }}</p>
+    <p><strong>Rôle:</strong> {{ manager.role }}</p>
+</div>

@@ -38,13 +38,15 @@ export class EmployeesComponent {
       this.closeUserModal(); // Fermer le modal après la création
     });
   }
-
-  // Supprimer un utilisateur
-  deleteUser(id: number): void {
+// Supprimer un utilisateur avec confirmation
+deleteUser(id: number): void {
+  const confirmation = window.confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?");
+  if (confirmation) {
     this.userService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter(user => user.id !== id);
     });
   }
+}
 
   // Ouvre le modal et sélectionne l'utilisateur
   openManagerModal(user: any) {
@@ -60,14 +62,25 @@ export class EmployeesComponent {
   }
 
   // Affecte un manager à un employé
-  assignManager() {
-    if (this.managerId && this.selectedUser) {
-      // Logique pour affecter le manager à l'employé (ici un appel à une méthode du service)
-      this.selectedUser.managerId = this.managerId;
-      // Fermer le modal après l'affectation
-      this.closeManagerModal();
-    }
-  }
+// Affecte un manager à un employé
+assignManager() {  
+  if (this.managerId && this.selectedUser) {  
+    this.userService.setManagerToEmployee(this.selectedUser.id, this.managerId)  
+      .subscribe(() => {  
+        // Mettre à jour localement après une affectation réussie  
+        this.selectedUser.managerId = this.managerId;  
+        this.closeManagerModal();  
+        alert("L'affectation est réussie!");
+
+        this.getUsers(); // Recharger la liste pour refléter les changements  
+      }, error => {  
+        console.error("Erreur lors de l'affectation du manager", error);  
+        alert("Erreur lors de l'affectation du manager");
+
+      });  
+  }  
+}
+
 
   // Ouvre le modal pour créer un nouvel utilisateur
   openUserModal() {
